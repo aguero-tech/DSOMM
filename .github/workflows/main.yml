@@ -13,7 +13,7 @@ permissions:
   #pull-requests: write # to be able to comment on released pull requests
 
 jobs:
-  build:
+  default-prebuild-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
