@@ -1,3 +1,21 @@
+This is NOT the Original; this is my version of DSOMM with personal UI/UX improvements.   See OG here -> [OWASP DSOMM OFFICIAL GITHUB](https://github.com/devsecopsmaturitymodel/DevSecOps-MaturityModel)
+
+#Getting Started
+
+I changed the .ignore to include the generated.yml file on purpose.  Once you have the repo copied. 
+
+## Step 1: Run Install
+```run npm install```
+
+## Step 2: Start DSOMM app
+```nmp start```
+
+## Step 3: Open Browser GUI
+Open web browser and direct yourself to local host deployment given.
+Ex: ```** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **```
+
+
+____
 # Introduction
 
 From a startup to a multinational corporation the software development industry is currently dominated by agile frameworks and product teams and as part of it DevOps strategies. It has been observed that during the implementation, security aspects are usually neglected or are at least not sufficient taken account of. It is often the case that standard safety requirements of the production environment are not utilized or applied to the build pipeline in the continuous integration environment with containerization or concrete docker. Therefore, the docker registry is often not secured which might result in the theft of the entire company’s source code.
