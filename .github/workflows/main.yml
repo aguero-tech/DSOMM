@@ -50,7 +50,7 @@ jobs:
         with:
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: emmanuelaguero/dsomm:${{ steps.get-version.outputs.version }},wurstbrot/dsomm:latest
+          tags: emmanuelaguero/dsomm:${{ steps.get-version.outputs.version }}, emmanuelaguero/dsomm:latest
       # Commit all changed files back to the repository
       - uses: planetscale/ghcommit-action@v0.1.6
         with:
