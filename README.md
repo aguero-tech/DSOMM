@@ -1,6 +1,6 @@
 This is NOT the Original; this is my version of DSOMM with personal UI/UX improvements.   See OG here -> [OWASP DSOMM OFFICIAL GITHUB](https://github.com/devsecopsmaturitymodel/DevSecOps-MaturityModel)
 
-#Getting Started
+# Getting Started
 
 I changed the .ignore to include the generated.yml file on purpose.  Once you have the repo copied. 
 
