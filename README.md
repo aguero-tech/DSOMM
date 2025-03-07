@@ -14,8 +14,17 @@ I changed the .ignore to include the generated.yml file on purpose.  Once you ha
 Open web browser and direct yourself to local host deployment given.
 Ex: ```** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **```
 
-# Getting Started with Docker
-In progress. Docker containers coming soon.
+# Getting Started with Docker Images
+
+## Step 1: Run image (image will download if not found locally) by the using following command:
+   ```docker run -p 8080:8080 emmanuelaguero/dsomm:latest```
+
+## Step 2: Open Browser GUI on port localhost:8080
+Open web brower to ```http://localhost:8080/```
+
+If MATRIX CONTENTS DO NOT LOAD while using containers.
+From the web browser gui on port 8080; open the hamburger menu and load any other page; then go back to the Matrix page. contents will load. 
+
 ____
 # Introduction
 
