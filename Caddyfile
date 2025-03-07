@@ -5,7 +5,7 @@
 :{$PORT}, localhost:{$PORT} {
 	log stdout
 	file_server {
-		root /srv/dsomm
+		root * /srv
 	}
         try_files {path} {path}/ /index.html
 
