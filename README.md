@@ -15,7 +15,7 @@ Open web browser and direct yourself to local host deployment given.
 Ex: ```** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **```
 
 # Getting Started with Docker
-in progress.  
+In progress. Docker containers coming soon.
 ____
 # Introduction
 
@@ -168,12 +168,13 @@ Multilanguage support is not given currently and not planned.
 
 # Sponsors
 
+Me [Emmanuel.Aguero](www.aguero.tech); OWASP Lifetime Member
+
 [![Timo Pagel IT-Consulting](https://raw.githubusercontent.com/DefectDojo/Documentation/master/doc/img/timo-pagel-logo.png)](https://pagel.pro)
 
 [![Apprio Inc](https://github.com/wurstbrot/DevSecOps-MaturityModel/raw/master-old/assets/images/Apiiro_black_logo.png)](https://apiiro.com/)
 
 [![Heroku (hosting)](https://github.com/wurstbrot/DevSecOps-MaturityModel/raw/master/src/assets/images/sponsors/heroku.png)](https://www.heroku.com/open-source-credit-program)
-
 # Donations
 
 If you are using the model or you are inspired by it, want to help but don't want to create pull requests? You can donate at the [OWASP Project Wiki Page](https://owasp.org/donate/?reponame=www-project-devsecops-maturity-model&title=OWASP+Devsecops+Maturity+Model). Donations might be used for the design of logos/images/design or travels.
