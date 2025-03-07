@@ -1,20 +1,25 @@
 {
-	http_port {$PORT}
+  http_port 8080
 }
 
-:{$PORT}, localhost:{$PORT} {
-	log stdout
-	file_server {
-		root * /srv
-	}
-        try_files {path} {path}/ /index.html
+:8080 {
+  log {
+    output stdout
+    format json
+  }
 
-	header / {
-		X-Content-Type-Options "nosniff"
-		X-XSS-Protection "1; mode=block"
-		X-Robots-Tag "none"
-		X-Download-Options "noopen"
-		X-Permitted-Cross-Domain-Policies "none"
-		Referrer-Policy "no-referrer"
-	}
+  root * /srv 
+
+  file_server  
+
+  try_files {path} {path}/ /index.html
+
+  header {
+    X-Content-Type-Options "nosniff"
+    X-XSS-Protection "1; mode=block"
+    X-Robots-Tag "none"
+    X-Download-Options "noopen"
+    X-Permitted-Cross-Domain-Policies "none"
+    Referrer-Policy "no-referrer"
+  }
 }
