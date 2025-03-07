@@ -11,6 +11,7 @@ import * as yaml from 'js-yaml';
 import { Router } from '@angular/router';
 import { MatChip } from '@angular/material/chips';
 import * as md from 'markdown-it';
+import { parse } from 'yamljs';
 
 export interface activitySchema {
   uuid: string;
@@ -846,6 +847,50 @@ export class CircularHeatmapComponent implements OnInit {
   ResetIsImplemented() {
     localStorage.removeItem('dataset');
     this.loadDataset();
+  }
+
+  triggerFileUpload(): void {
+    const fileInput = document.getElementById('fileUpload') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.click();
+    }
+  }
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        try {
+          // Read file content as text
+          const yamlContent = e.target.result;
+
+          // Parse YAML string into a JSON object
+          const parsedYAML = yaml.load(yamlContent);
+
+          // Verify if the uploaded file contains a valid structure
+          if (parsedYAML) {
+            this.YamlObject = parsedYAML; // Replace the current dataset with the uploaded one
+
+            // Save the new dataset in local storage for persistence
+            localStorage.setItem('dataset', JSON.stringify(parsedYAML));
+
+            // Refresh the dataset and table
+            this.loadDataset();
+            console.log('Dataset successfully replaced and stored locally.');
+          } else {
+            console.error('The uploaded file is not a valid YAML structure.');
+          }
+        } catch (error) {
+          console.error('Error during YAML parsing:', error);
+        }
+      };
+
+      // Read the file as a text string to parse its content
+      reader.readAsText(file);
+    }
   }
 
   saveDataset() {

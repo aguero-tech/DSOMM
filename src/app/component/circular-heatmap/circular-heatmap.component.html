@@ -287,6 +287,16 @@
           (click)="ResetIsImplemented()">
           Reset Implemented
         </button>
+
+        <input
+          type="file"
+          accept=".yml,.yaml"
+          (change)="onFileSelected($event)"
+          id="fileUpload"
+          style="display: none"
+        />
+        <button (click)="triggerFileUpload()">Upload YAML
+        </button>
       </div>
     </div>
     <div class="col-md-3"></div>
