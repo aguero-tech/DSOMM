@@ -15,6 +15,7 @@ Open web browser and direct yourself to local host deployment given.
 Ex: ```** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **```
 
 # Getting Started with Docker Images
+Make sure you have Docker Desktop installed. Then from terminal.
 
 ## Step 1: Run image (image will download if not found locally) by the using following command:
    ```docker run -p 8080:8080 emmanuelaguero/dsomm:latest```
