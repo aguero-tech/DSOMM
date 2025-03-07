@@ -12,4 +12,4 @@ ENV PORT 8080
 
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY --from=build /usr/src/app/dist /srv
-COPY assets/YAML/generated/generated.yaml /srv/assets/YAML/generated/generated.yaml
+COPY src/assets/YAML/generated/generated.yaml /srv/assets/YAML/generated/generated.yaml
