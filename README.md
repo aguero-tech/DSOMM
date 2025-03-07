@@ -1,6 +1,6 @@
 This is NOT the Original; this is my version of DSOMM with personal UI/UX improvements.   See OG here -> [OWASP DSOMM OFFICIAL GITHUB](https://github.com/devsecopsmaturitymodel/DevSecOps-MaturityModel)
 
-# Getting Started
+# Getting Started Locally
 
 I changed the .ignore to include the generated.yml file on purpose.  Once you have the repo copied. 
 
@@ -14,7 +14,8 @@ I changed the .ignore to include the generated.yml file on purpose.  Once you ha
 Open web browser and direct yourself to local host deployment given.
 Ex: ```** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **```
 
-
+# Getting Started with Docker
+in progress.  
 ____
 # Introduction
 
