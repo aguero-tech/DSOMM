@@ -78,3 +78,9 @@ body.night-mode {
   @include apply-theme($custom-dark-theme);
   @include mat.all-component-themes($DSOMM-dark-theme);
 }
+
+.button-container {
+  display: flex;
+  flex-direction: column; // Vertical alignment
+  gap: 10px; // Space between buttons
+}

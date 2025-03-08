@@ -11,6 +11,7 @@ import * as yaml from 'js-yaml';
 import { Router } from '@angular/router';
 import { MatChip } from '@angular/material/chips';
 import * as md from 'markdown-it';
+import { parse } from 'yamljs';
 
 export interface activitySchema {
   uuid: string;
@@ -767,15 +768,65 @@ export class CircularHeatmapComponent implements OnInit {
   }
 
   saveEditedYAMLfile() {
+    // Update the YAML object status
     this.setTeamsStatus(this.YamlObject, this.teamList, this.ALL_CARD_DATA);
-    let yamlStr = yaml.dump(this.YamlObject);
 
-    let file = new Blob([yamlStr], { type: 'text/csv;charset=utf-8' });
-    var link = document.createElement('a');
-    link.href = window.URL.createObjectURL(file);
-    link.download = 'generated.yaml';
-    link.click();
-    link.remove();
+    // Serialize the YAML object to a string
+    const yamlStr = yaml.dump(this.YamlObject);
+
+    // Create a Blob for the file
+    const file = new Blob([yamlStr], { type: 'text/yaml;charset=utf-8' });
+
+    // Get the current timestamp in the desired format (YYYYMMDDHHMM)
+    const now = new Date();
+    const timestamp = `${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, '0')}${now
+      .getDate()
+      .toString()
+      .padStart(2, '0')}${now.getHours().toString().padStart(2, '0')}${now
+      .getMinutes()
+      .toString()
+      .padStart(2, '0')}`;
+
+    // Save with timestamped filename
+    const timestampedFilename = `generated.${timestamp}.yaml`;
+    const fixedFilename = 'generated.yaml';
+
+    // Create a download link for the timestamped file
+    const timestampedLink = document.createElement('a');
+    timestampedLink.href = window.URL.createObjectURL(file);
+    timestampedLink.download = timestampedFilename;
+
+    // Trigger the first download (timestamped file)
+    timestampedLink.click();
+    timestampedLink.remove();
+
+    // Create another download link for the fixed name file
+    const fixedLink = document.createElement('a');
+    fixedLink.href = window.URL.createObjectURL(file);
+    fixedLink.download = fixedFilename;
+
+    // Trigger the second download (fixed name file)
+    fixedLink.click();
+    fixedLink.remove();
+
+    // Save to the original file path (if applicable in development)
+    // This will work only if you have a backend setup or file system API access
+    this.saveToFileSystem('src/assets/YAML/generated/generated.yaml', yamlStr);
+  }
+  /**
+   * Mock function to save to a specific location in the file system.
+   * This will likely require a backend service to manage files.
+   */
+  saveToFileSystem(filePath: string, content: string) {
+    // Example implementation (requires backend or server support):
+    // You would use an HTTP request or file system API to save the file
+
+    // Example for an HTTP call
+    // return this.http.post('/save-file', { path: filePath, content }).subscribe(response => {
+    //   console.log('File saved to server:', response);
+    // });
+
+    console.warn('Saving to file system requires a server-side implementation.');
   }
 
   setTeamsStatus(yamlObject: any, teamList: string[], card_data: cardSchema[]) {
@@ -846,6 +897,50 @@ export class CircularHeatmapComponent implements OnInit {
   ResetIsImplemented() {
     localStorage.removeItem('dataset');
     this.loadDataset();
+  }
+
+  triggerFileUpload(): void {
+    const fileInput = document.getElementById('fileUpload') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.click();
+    }
+  }
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        try {
+          // Read file content as text
+          const yamlContent = e.target.result;
+
+          // Parse YAML string into a JSON object
+          const parsedYAML = yaml.load(yamlContent);
+
+          // Verify if the uploaded file contains a valid structure
+          if (parsedYAML) {
+            this.YamlObject = parsedYAML; // Replace the current dataset with the uploaded one
+
+            // Save the new dataset in local storage for persistence
+            localStorage.setItem('dataset', JSON.stringify(parsedYAML));
+
+            // Refresh the dataset and table
+            this.loadDataset();
+            console.log('Dataset successfully replaced and stored locally.');
+          } else {
+            console.error('The uploaded file is not a valid YAML structure.');
+          }
+        } catch (error) {
+          console.error('Error during YAML parsing:', error);
+        }
+      };
+
+      // Read the file as a text string to parse its content
+      reader.readAsText(file);
+    }
   }
 
   saveDataset() {
