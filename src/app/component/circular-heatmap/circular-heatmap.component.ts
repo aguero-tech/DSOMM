@@ -355,10 +355,10 @@ export class CircularHeatmapComponent implements OnInit {
     }
     this.ALL_CARD_DATA[index]['Activity'][activityIndex]['teamsImplemented'][
       teamKey
-    ] =
+      ] =
       !this.ALL_CARD_DATA[index]['Activity'][activityIndex]['teamsImplemented'][
         teamKey
-      ];
+        ];
 
     this.saveDataset();
     this.reColorHeatmap();
@@ -413,10 +413,10 @@ export class CircularHeatmapComponent implements OnInit {
       .attr(
         'transform',
         'translate(' +
-          (width / 2 - (radial_labels.length * segmentHeight + innerRadius)) +
-          ',' +
-          margin.top +
-          ')'
+        (width / 2 - (radial_labels.length * segmentHeight + innerRadius)) +
+        ',' +
+        margin.top +
+        ')'
       )
       .call(chart);
 
@@ -468,9 +468,9 @@ export class CircularHeatmapComponent implements OnInit {
         if (curr['Done%'] != -1) {
           d3.selectAll(
             '#segment-' +
-              curr.SubDimension.replace(/ /g, '-') +
-              '-' +
-              curr.Level.replaceAll(' ', '-')
+            curr.SubDimension.replace(/ /g, '-') +
+            '-' +
+            curr.Level.replaceAll(' ', '-')
           ).attr('fill', 'yellow');
         }
       })
@@ -481,9 +481,9 @@ export class CircularHeatmapComponent implements OnInit {
         if (curr['Done%'] != -1) {
           d3.selectAll(
             '#segment-' +
-              curr.SubDimension.replace(/ /g, '-') +
-              '-' +
-              curr.Level.replaceAll(' ', '-')
+            curr.SubDimension.replace(/ /g, '-') +
+            '-' +
+            curr.Level.replaceAll(' ', '-')
           ).attr('fill', function (p) {
             var color = d3
               .scaleLinear<string, string>()
@@ -496,9 +496,9 @@ export class CircularHeatmapComponent implements OnInit {
         } else {
           d3.selectAll(
             '#segment-' +
-              curr.SubDimension.replace(/ /g, '-') +
-              '-' +
-              curr.Level.replaceAll(' ', '-')
+            curr.SubDimension.replace(/ /g, '-') +
+            '-' +
+            curr.Level.replaceAll(' ', '-')
           ).attr('fill', '#DCDCDC');
         }
       });
@@ -537,10 +537,10 @@ export class CircularHeatmapComponent implements OnInit {
           .attr(
             'transform',
             'translate(' +
-              (margin.left + offset) +
-              ',' +
-              (margin.top + offset) +
-              ')'
+            (margin.left + offset) +
+            ',' +
+            (margin.top + offset) +
+            ')'
           );
 
         var autoDomain = false;
@@ -603,10 +603,10 @@ export class CircularHeatmapComponent implements OnInit {
           .attr(
             'transform',
             'translate(' +
-              (margin.left + offset) +
-              ',' +
-              (margin.top + offset) +
-              ')'
+            (margin.left + offset) +
+            ',' +
+            (margin.top + offset) +
+            ')'
           );
 
         labels
@@ -715,9 +715,9 @@ export class CircularHeatmapComponent implements OnInit {
       if (this.ALL_CARD_DATA[x]['Done%'] == -1) {
         d3.selectAll(
           '#segment-' +
-            this.ALL_CARD_DATA[x]['SubDimension'].replace(/ /g, '-') +
-            '-' +
-            this.ALL_CARD_DATA[x]['Level'].replace(' ', '-')
+          this.ALL_CARD_DATA[x]['SubDimension'].replace(/ /g, '-') +
+          '-' +
+          this.ALL_CARD_DATA[x]['Level'].replace(' ', '-')
         ).attr('fill', '#DCDCDC');
       }
     }
@@ -884,9 +884,9 @@ export class CircularHeatmapComponent implements OnInit {
 
       d3.selectAll(
         '#segment-' +
-          this.ALL_CARD_DATA[index]['SubDimension'].replace(/ /g, '-') +
-          '-' +
-          this.ALL_CARD_DATA[index]['Level'].replace(' ', '-')
+        this.ALL_CARD_DATA[index]['SubDimension'].replace(/ /g, '-') +
+        '-' +
+        this.ALL_CARD_DATA[index]['Level'].replace(' ', '-')
       ).attr('fill', function (p) {
         return color(_self.ALL_CARD_DATA[index]['Done%']);
       });

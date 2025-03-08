@@ -281,8 +281,7 @@ Build and Deployment:
         such as
         [semantic-release-action](https://github.com/cycjimmy/semantic-release-action)
 
-        do not automatically sign commits and may encounter issues as a
-        result.          
+        do not automatically sign commits and may encounter issues as a result.
 
 
         To
@@ -339,7 +338,7 @@ Build and Deployment:
       tags:
         - none
       teamsImplemented:
-        Default: true
+        Default: false
         B: false
         C: false
     Signing of code:
@@ -1568,7 +1567,7 @@ Build and Deployment:
             (1
           tags: []
           description: >-
-            Sample concept:  
+            Sample concept:
 
             (1) each container has a set lifetime and
 
@@ -1578,7 +1577,7 @@ Build and Deployment:
             have some form of a graceful replacement to ensure no (short)
             service outage
 
-            will occur to the end users.  
+            will occur to the end users.
 
             (2) twice a day a rebuild of images is done.
 
@@ -2860,9 +2859,8 @@ Culture and Organization:
       risk: Understanding security is hard.
       measure: >
         The following areas of code tend to have a high-risk of containing
-        security vulnerabilities:
-          - Crypto implementations / usage
-          - Parser, unparser
+        security vulnerabilities:  - Crypto implementations / usage  - Parser,
+        unparser
           - System configuration
           - Authentication, authorization
           - Session management
@@ -3203,7 +3201,7 @@ Culture and Organization:
         Not defining the protection requirement of applications can lead to
         wrong
 
-        prioritization, delayed remediation of 
+        prioritization, delayed remediation of
 
         critical security issues, increasing
 
@@ -3748,7 +3746,7 @@ Implementation:
 
         Input validation and output encoding work together.
 
-        Apply both. 
+        Apply both.
 
 
         **Context-aware output encoding** encodes data differently,
@@ -3773,13 +3771,13 @@ Implementation:
 
         Comment {{bad_data}} */</script>
 
-        ```                
+        ```
       risk: >-
         If an attacker manages to slip though your input validation, the
         attacker
 
         may gain control over the user session or execute arbitrary actions.
-      measure: "* Use modern secure frameworks such as React/Angular/Vue/Svelte. The\ndefault method here renders data in a safe way.\n* Use established and well-maintained\nencoding libraries such as OWASPâ\x80\x99s Java Encoder and Microsoftâ\x80\x99s\nAntiXSS.\n* Implement content security policies (CSP) to restrict the types\nof content that can be loaded and executed.\n"
+      measure: "* Use modern secure frameworks such as React/Angular/Vue/Svelte. The\ndefault method here renders data in a safe way.\n* Use established and well-maintained\nencoding libraries such as OWASPâÂÂ\x80ÂÂ\x99s Java Encoder and MicrosoftâÂÂ\x80ÂÂ\x99s\nAntiXSS.\n* Implement content security policies (CSP) to restrict the types\nof content that can be loaded and executed.\n"
       difficultyOfImplementation:
         knowledge: 1
         time: 2
@@ -3832,9 +3830,8 @@ Implementation:
 
 
         Pay attention to these two lines of code. They seem similar, but behave
-        very differently.
-
-          * `sql.execute("SELECT * FROM table WHERE ID = " + id);`
+        very differently.  * `sql.execute("SELECT * FROM table WHERE ID = " +
+        id);`
           * `sql.execute("SELECT * FROM table WHERE ID = ?", id);`
         The second line is parameterized. The same principle applies to other
         types, such as command line execution, etc.
@@ -3849,14 +3846,14 @@ Implementation:
 
         This
 
-        applies to SQL, NoSql, LDAP, XPath, email headers OS commands, etc. 
+        applies to SQL, NoSql, LDAP, XPath, email headers OS commands, etc.
       measure: >
         * Identify which of the types your application is using. Check that you
-        use:
-          * Use _parametrized queries_ (or _prepared statements_)
-        * For database queries, you may also use:
-          * Use _stored procedures_ ()
-          * Use ORM (Object-Relational Mapping) tools that automatically handle input sanitization
+        use:  * Use _parametrized queries_ (or _prepared statements_)
+
+        * For database queries, you may also use:  * Use _stored procedures_ () 
+        * Use ORM (Object-Relational Mapping) tools that automatically handle
+        input sanitization
       difficultyOfImplementation:
         knowledge: 1
         time: 2
@@ -3942,14 +3939,14 @@ Implementation:
           description: >-
             The OWASP Secure Headers Project (also called OSHP) describes
 
-            HTTP response headers that your application can use 
+            HTTP response headers that your application can use
 
             to increase the security
 
             of your application. Once set, these HTTP response headers can
             restrict
 
-            modern browsers 
+            modern browsers
 
             from running into easily preventable vulnerabilities.
 
@@ -4031,7 +4028,7 @@ Implementation:
         branches without warning, potentially erasing valuable contributions
         from
 
-        team members. This can disrupt collaboration, 
+        team members. This can disrupt collaboration,
 
         cause data loss, and create
 
@@ -4040,7 +4037,7 @@ Implementation:
 
         Bypassing the pull request process
 
-        might remove an important code review step. 
+        might remove an important code review step.
 
         This increases the risk of merging
 
@@ -5817,9 +5814,8 @@ Information Gathering:
       uuid: ccfdd0a8-991e-4269-ad77-c0a54ca655cb
       description: >
         Implement logging of security relevant events. The following events tend
-        to be security relevant:
-          - successful/failed login/logout
-          - creation, change, and deletion of users
+        to be security relevant:  - successful/failed login/logout  - creation,
+        change, and deletion of users
           - errors during input validation and output creation
           - exceptions and errors with security in their name
           - transactions of value (e.g., financial transactions, costly operations)
@@ -6148,12 +6144,12 @@ Information Gathering:
       measure: >-
         Usage of Coverage- and control-metrics to show the effectiveness of
 
-        the security program. Coverage is the degree in 
-                which a specific
-        security control for a specific target group is applied with all
-        resources.
+        the security program. Coverage is the degree in        which a specific
 
-               The control degree shows the actual application of security standards
+        security control for a specific target group is applied with all
+        resources.       The control degree shows the actual application of
+        security standards
+
         and security-guidelines. Examples are gathering information on
         anti-virus,
 
@@ -6405,17 +6401,19 @@ Information Gathering:
       measure: >-
         Gathering of application metrics helps to identify incidents like brute
         force attacks, login/logout patterns, and unusual spikes in activity.
-        Key metrics to monitor include:
-          - Authentication attempts (successful/failed logins)
-          - Transaction volumes and patterns (e.g. orders, payments)
+        Key metrics to monitor include:  - Authentication attempts
+        (successful/failed logins)  - Transaction volumes and patterns (e.g.
+        orders, payments)
           - API call rates and response times
           - User session metrics
           - Resource utilization
 
         Example: An e-commerce application normally processes 100 orders per
-        hour. A sudden spike to 1000 orders per hour could indicate either:
-         - A legitimate event (unannounced marketing campaign, viral social media post)
-         - A security incident (automated bulk purchase bots, credential stuffing attack)
+        hour. A sudden spike to 1000 orders per hour could indicate either: - A
+        legitimate event (unannounced marketing campaign, viral social media
+        post) - A security incident (automated bulk purchase bots, credential
+        stuffing attack)
+
 
         By monitoring these basic metrics, teams can quickly investigate
         abnormal patterns and determine if they represent security incidents
@@ -6598,7 +6596,7 @@ Information Gathering:
       risk: >-
         Not communicating how many applications are adhering to SLAs based on
 
-        the criticality of vulnerabilities can lead to delayed remediation of 
+        the criticality of vulnerabilities can lead to delayed remediation of
 
         critical
 
@@ -6612,7 +6610,7 @@ Information Gathering:
         per severity level for components such as applications, ensuring
         alignment
 
-        with SLAs. 
+        with SLAs.
 
         The rate should be broken down by team, product, application,
 
@@ -6915,7 +6913,7 @@ Information Gathering:
         properly configured automated pull request (PR) tool (e.g., Dependabot
         or
 
-        Renovate) in a repository. 
+        Renovate) in a repository.
 
         In addition, the measurement of the time from
 
@@ -7008,7 +7006,7 @@ Information Gathering:
       risk: >-
         Not communicating how many applications are adhering to SLAs based on
 
-        the criticality of vulnerabilities can lead to delayed remediation of 
+        the criticality of vulnerabilities can lead to delayed remediation of
 
         critical
 
@@ -7020,14 +7018,14 @@ Information Gathering:
         Measurement and communication of how many of the vulnerabilities
         handling
 
-        per severity for components like applications are aligned to SLAs. 
+        per severity for components like applications are aligned to SLAs.
 
         This
 
         is performed for the hole organization and doesn't need to be broken
         down
 
-        (yet) on team/product/application. 
+        (yet) on team/product/application.
 
         At least quarterly.
       difficultyOfImplementation:
@@ -7622,9 +7620,8 @@ Test and Verification:
         ignored. Specially, if tests are automated an run daily.
       measure: >-
         Findings from security tests must be triaged and outcomes
-        persisted/documented to:
-          - Prevent re-analysis of known issues in subsequent test runs
-          - Track accepted risks vs false positives
+        persisted/documented to:  - Prevent re-analysis of known issues in
+        subsequent test runs  - Track accepted risks vs false positives
           - Enable consistent decision-making across teams
 
         At this maturity level, a simple tracking system suffices - tools need
@@ -7633,9 +7630,10 @@ Test and Verification:
         findings.
 
 
-        Samples for false positive handling:
-          - [OWASP Dependency Check](https://jeremylong.github.io/DependencyCheck/general/suppression.html)
-          - [Kubescape with VEX](https://kubescape.io/blog/2023/12/07/kubescape-support-for-vex-generation/)
+        Samples for false positive handling:  - [OWASP Dependency
+        Check](https://jeremylong.github.io/DependencyCheck/general/suppression.html) 
+        - [Kubescape with
+        VEX](https://kubescape.io/blog/2023/12/07/kubescape-support-for-vex-generation/)
           - [OWASP DefectDojo Risk Acceptance](https://docs.defectdojo.com/en/working_with_findings/findings_workflows/risk_acceptances/) and [False Positive Handling](https://docs.defectdojo.com/en/working_with_findings/intro_to_findings/#triage-vulnerabilities-using-finding-status)
       difficultyOfImplementation:
         knowledge: 1
@@ -7801,7 +7799,7 @@ Test and Verification:
         Not defining the protection requirement of applications can lead to
         wrong
 
-        prioritization, delayed remediation of 
+        prioritization, delayed remediation of
 
         critical security issues, increasing
 
@@ -7812,10 +7810,9 @@ Test and Verification:
         of vulnerabilities per severity for components like applications are
         aligned
 
-        to SLAs. 
-         This is performed for the hole organization and doesn't need to
-        be broken down (yet) on team/product/application. 
-         At least quarterly.
+        to SLAs. This is performed for the hole organization and doesn't need to
+
+        be broken down (yet) on team/product/application. At least quarterly.
       description: |-
         The protection requirements for an application should consider:
         - Data criticality
