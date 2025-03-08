@@ -31,8 +31,8 @@
 .resetButtonClass {
   position: fixed;
   padding: 10px;
-  bottom: 5%;
-  right: 18%;
+  bottom: 20%;
+  right: 13%;
 }
 .overlay-details {
   z-index: 2;
