@@ -7,12 +7,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js 16.16.0
-      uses: actions/setup-node@v1
-      with:
-        node-version: 16.0
-    - name: Install dependencies
-      run: npm install
-    - name: Test
-      run: npm test -- --watch=false --browsers=ChromeHeadless
+      - name: Checkout repo
+        uses: actions/checkout@v3  # Update to latest stable version
+
+      - name: Use Node.js 18  # Update to a stable LTS version (16 is outdated)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies (clean install)
+        run: npm ci  # More reliable than 'npm install' for CI
+
+      - name: Install Chrome for Headless Tests
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Test
+        run: npm test -- --watch=false --browsers=ChromeHeadless
+
+      - name: Debug Installed Angular Packages
+        run: npm list @angular/material
