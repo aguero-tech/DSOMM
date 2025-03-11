@@ -26,5 +26,3 @@ jobs:
       - name: Test
         run: npm test -- --watch=false --browsers=ChromeHeadless
 
-      - name: Debug Installed Angular Packages
-        run: npm list @angular/material
