@@ -43,11 +43,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('DSOMM');
   });
 
-  it('check for fork Agueros github ribbon generation', () => {
+  it('check for Fork Aguero Github" ribbon generation', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const HTMLElement: HTMLElement = fixture.nativeElement;
     var divTag = HTMLElement.querySelector('div')!;
     var aTag = divTag.querySelector('a')!;
-    expect(aTag.textContent).toEqual('Fork Aguero GitHub');
+    expect(aTag.textContent).toEqual('Fork Aguero Github');
   });
 });
