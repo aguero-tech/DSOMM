@@ -1,4 +1,10 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,10 +25,6 @@ import { AboutUsComponent } from './component/about-us/about-us.component';
 import { DependencyGraphComponent } from './component/dependency-graph/dependency-graph.component';
 import { TeamsComponent } from './component/teams/teams.component';
 import { ToStringValuePipe } from './pipe/to-string-value.pipe';
-import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -49,12 +51,17 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatExpansionModule,
+    MatExpansionModule, // Imported here
+    MatFormFieldModule, // Imported here
+    MatInputModule, // Imported here
   ],
   exports: [
-    MatExpansionModule, // ✅ Exported in case it is used in other modules
+    MatExpansionModule, // Exported for other modules
+    MatFormFieldModule, // Exported for other modules
+    MatInputModule, // Exported for other modules
   ],
   providers: [ymlService],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // Ensures Angular recognizes custom elements
 })
 export class AppModule {}
