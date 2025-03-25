@@ -1,7 +1,7 @@
 @use '@angular/material' as mat;
 
 // ----------------------------------------------
-// Custom Theme Maps
+// Theme Colors and Typography
 // ----------------------------------------------
 $light-theme: (
         background: white,
@@ -15,30 +15,30 @@ $custom-dark-theme: (
         link: #bb86fc
 );
 
-// ----------------------------------------------
-// Angular Material Core Styles & Typography
-// ----------------------------------------------
 $custom-typography: mat.define-typography-level(
         $font-family: montserrat,
         $font-weight: 400,
         $font-size: 1rem,
         $line-height: 1,
-        $letter-spacing: normal,
+        $letter-spacing: normal
 );
 @include mat.core($custom-typography);
 
 // ----------------------------------------------
-// Angular Material Palettes and Themes
+// Angular Material Palettes
 // ----------------------------------------------
 $DSOMM-primary: mat.define-palette(mat.$green-palette, 400);
 $DSOMM-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 $DSOMM-warn: mat.define-palette(mat.$red-palette);
 
+// ----------------------------------------------
+// Angular Material Themes
+// ----------------------------------------------
 $DSOMM-light-theme: mat.define-light-theme((
         color: (
                 primary: $DSOMM-primary,
                 accent: $DSOMM-accent,
-                warn: $DSOMM-warn,
+                warn: $DSOMM-warn
         )
 ));
 
@@ -46,12 +46,12 @@ $DSOMM-dark-theme: mat.define-dark-theme((
         color: (
                 primary: $DSOMM-primary,
                 accent: $DSOMM-accent,
-                warn: $DSOMM-warn,
+                warn: $DSOMM-warn
         )
 ));
 
 // ----------------------------------------------
-// Mixin: Body Theme Styling
+// Base Theme Mixin
 // ----------------------------------------------
 @mixin apply-theme($theme) {
   background-color: map-get($theme, background);
@@ -63,7 +63,7 @@ $DSOMM-dark-theme: mat.define-dark-theme((
 }
 
 // ----------------------------------------------
-// Light Theme Styles
+// Light Mode Styles
 // ----------------------------------------------
 body {
   @include apply-theme($light-theme);
@@ -76,7 +76,7 @@ body {
 }
 
 // ----------------------------------------------
-// Dark Theme Styles
+// Dark Mode Styles
 // ----------------------------------------------
 body.night-mode {
   @include apply-theme($custom-dark-theme);
@@ -87,7 +87,7 @@ body.night-mode {
     color: map-get($custom-dark-theme, text);
   }
 
-  // Common dark containers
+  // Common containers
   mat-card,
   .mat-dialog-container,
   .mat-expansion-panel,
@@ -97,13 +97,13 @@ body.night-mode {
     color: #e0e0e0;
   }
 
-  // Specific dialog/modal styling
+  // Dialog styling
   .mat-dialog-container {
     border: 1px solid #444;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
   }
 
-  // Modal content container (your fix)
+  // Modal override
   .overlay-modal {
     background-color: #2c2c2c !important;
     color: #e0e0e0;
@@ -118,10 +118,21 @@ body.night-mode {
     }
   }
 
-  // Optional override for specific sections
-  .matrix-output {
-    p, span, div {
-      color: #e0e0e0;
-    }
+  // Matrix override
+  .matrix-output p,
+  .matrix-output span,
+  .matrix-output div {
+    color: #e0e0e0;
+  }
+
+  // Circular heatmap (radar chart)
+  .circular-heat text,
+  .labels.segment text {
+    fill: #ffffff !important;
+  }
+
+  .circular-heat line,
+  .circular-heat path {
+    stroke: #000000;
   }
 }
